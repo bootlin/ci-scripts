@@ -1,19 +1,28 @@
 #!/bin/bash
 
+RETURN_VALUE=0
 cd $(dirname $0)
 
 echo "Triggering rootfs build"
-./buildrootfs.sh
+if ! ./buildrootfs.sh; then
+    RETURN_VALUE=1
+fi
 
 echo "Triggering kernels build"
 cd $HOME/kernel-builder/
 git pull
+
 echo "  Updating sources"
-./update-source-tarball.sh all
+if ! ./update-source-tarball.sh all; then
+    RETURN_VALUE=1
+fi
+
 echo "  Launching builds"
 for d in $(ls defconfigs/*/*); do 
-    ./build.py -d $d; 
+    if ! ./build.py -d $d; then
+        RETURN_VALUE=1
+    fi
 done
 
-cd
+exit $RETURN_VALUE
 
