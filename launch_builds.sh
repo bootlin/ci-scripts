@@ -2,11 +2,12 @@
 
 RETURN_VALUE=0
 cd $(dirname $0)
+MAIN=$(pwd)
 
 git pull
 
 echo "Triggering rootfs build"
-if ! ./buildrootfs.sh > buildrootfs.log; then
+if ! ./buildrootfs.sh 2>&1 > $MAIN/buildrootfs.log; then
     RETURN_VALUE=1
 fi
 
@@ -15,13 +16,13 @@ cd $HOME/kernel-builder/
 git pull
 
 echo "  Updating sources"
-if ! ./update-source-tarball.sh all > update-source-tarball.log; then
+if ! ./update-source-tarball.sh all 2>&1 > $MAIN/update-source-tarball.log; then
     RETURN_VALUE=1
 fi
 
 echo "  Launching builds"
 for d in $(ls defconfigs/*/*); do
-    if ! ./build.py -d $d > build_$d.log; then
+    if ! ./build.py -d $d 2>&1 > $MAIN/build_$(basename $d).log; then
         RETURN_VALUE=1
     fi
 done
