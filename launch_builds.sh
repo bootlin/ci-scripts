@@ -3,6 +3,8 @@
 RETURN_VALUE=0
 cd $(dirname $0)
 
+git pull
+
 echo "Triggering rootfs build"
 if ! ./buildrootfs.sh > buildrootfs.log; then
     RETURN_VALUE=1
