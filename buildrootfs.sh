@@ -18,7 +18,7 @@ if [ $BUILD -eq 1 ]; then
     git pull
 
     echo "Building rootfs"
-    if ./build_rootfs.sh defconfig armv4 build armv4 defconfig armv5 build armv5 defconfig armv7 build armv7 defconfig aarch64 build aarch64
+    if ./build_rootfs.sh defconfig armv4 build armv4 defconfig armv5 build armv5 defconfig armv7 build armv7 defconfig aarch64 build aarch64 2>&1
     then
         echo "Rootfs built!"
         exit 0
