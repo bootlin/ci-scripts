@@ -22,7 +22,8 @@ fi
 
 echo "  Launching builds"
 for d in $(ls defconfigs/*/*); do
-    if ! ./build.py -d $d 2>&1 > $MAIN/build_$(basename $d).log; then
+    echo "  Building $d"
+    if ! ./build.py -d $d 2>&1 > $MAIN/build_$(sed "s/\//_/g" <<<"$d").log; then
         RETURN_VALUE=1
     fi
 done
