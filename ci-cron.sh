@@ -51,7 +51,7 @@ fi
 echo "  ctt up to date"
 
 echo "  launching jobs"
-if  ! ./ctt.py -b all 2>&1 > $MAIN/ctt.log; then
+if  ! ./ci_launcher.py -b all 2>&1 > $MAIN/ctt.log; then
     echo "There was an error launching the jobs"
     cat - > /tmp/ci_email <<EOF
 Subject: Launching daily jobs failed in CI architecture
