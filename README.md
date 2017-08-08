@@ -23,7 +23,7 @@ Built artifacts are then available in `$HOME/storage`.
 
 This script is called by `ci-cron.sh`.
 
-## buildrootfs.sh
+## buildrootfs.sh
 
 This triggers if needed (no artifacts, or new commits) a build of our custom
 rootfs.
