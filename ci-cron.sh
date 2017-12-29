@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MAIL_TO="florent.jacquet@free-electrons.com"
+MAIL_TO="kernelci@free-electrons.com"
 cd $(dirname $0)
 MAIN=$(pwd)
 
