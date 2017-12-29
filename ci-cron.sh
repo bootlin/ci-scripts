@@ -14,7 +14,7 @@ There was some errors in the daily build of rootfs and/or kernels.
 You can find the logs on the build server in the /home/ci/ci-scripts folder.
 
 EOF
-    sendmail $MAIL_TO < /tmp/ci_email
+    /usr/sbin/sendmail $MAIL_TO < /tmp/ci_email
 fi
 
 echo "Fetching storage from Build server"
@@ -28,7 +28,7 @@ There was some errors to fetch the latest builds.
 You can find the logs on the LAVA VM in the /home/ctt/ci-scripts folder.
 
 EOF
-    sendmail $MAIL_TO < /tmp/ci_email
+    /usr/sbin/sendmail $MAIL_TO < /tmp/ci_email
 fi
 
 echo "Launching ctt to send custom jobs"
@@ -46,7 +46,7 @@ or the dependencies installation.
 You can find the logs on the LAVA VM in the /home/ctt/ci-scripts folder.
 
 EOF
-    sendmail $MAIL_TO < /tmp/ci_email
+    /usr/sbin/sendmail $MAIL_TO < /tmp/ci_email
 fi
 echo "  ctt up to date"
 
@@ -60,7 +60,7 @@ There was some errors sending the jobs.
 You can find the logs on the LAVA VM in the /home/ctt/ci-scripts folder.
 
 EOF
-    sendmail $MAIL_TO < /tmp/ci_email
+    /usr/sbin/sendmail $MAIL_TO < /tmp/ci_email
 fi
 
 
