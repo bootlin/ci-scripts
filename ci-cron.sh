@@ -9,8 +9,8 @@ if ! ssh ci@build.free-electrons.com './ci-scripts/launch_builds.sh'; then
 fi
 
 echo "Fetching storage from Build server"
-if  ! rsync -ravzP ci@build.free-electrons.com:storage/builds /srv/downloads/ || \
-    ! rsync -ravzP ci@build.free-electrons.com:storage/rootfs /srv/downloads/ ; then
+if  ! rsync -ravz ci@build.free-electrons.com:storage/builds /srv/downloads/ || \
+    ! rsync -ravz ci@build.free-electrons.com:storage/rootfs /srv/downloads/ ; then
     echo "There was a problem getting the artifacts from the build server"
 fi
 
